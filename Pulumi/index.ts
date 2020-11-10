@@ -32,8 +32,3 @@ const appService = new awsx.ecs.FargateService("app-svc", {
 
 // Step 5: Export the Internet address for the service.
 export const url = web.endpoint.hostname;
-
-// Export a few interesting fields to make them easy to use:
-export const vpcId = vpc.id;
-export const vpcPrivateSubnetIds = vpc.privateSubnetIds;
-export const vpcPublicSubnetIds = vpc.publicSubnetIds;
