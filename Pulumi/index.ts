@@ -3,7 +3,7 @@ import * as aws from "@pulumi/aws";
 import * as awsx from "@pulumi/awsx";
 
 // Step 1: Create an ECS Fargate cluster.
-const cluster = new awsx.ecs.Cluster("cluster");
+const cluster = new awsx.ecs.Cluster("Cluster");
 
 // Step 2: Define the Networking for our service.
 const alb = new awsx.lb.ApplicationLoadBalancer(
