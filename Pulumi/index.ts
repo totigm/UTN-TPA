@@ -14,7 +14,7 @@ const alb = new awsx.lb.ApplicationLoadBalancer(
 const web = alb.createListener("web", { port: 80, external: true });
 
 // Step 3: Build and publish a Docker image to a private ECR registry.
-const img = awsx.ecs.Image.fromPath("app-img", "./app");
+const img = awsx.ecs.Image.fromPath("app-img", "./docker");
 
 // Step 4: Create a Fargate service task that can scale out.
 const appService = new awsx.ecs.FargateService("app-svc", {
