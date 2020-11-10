@@ -10,7 +10,7 @@ const cluster = new awsx.ecs.Cluster("Cluster");
 
 // Step 2: Define the Networking for our service.
 const alb = new awsx.lb.ApplicationLoadBalancer(
-    "net-lb", { external: true, securityGroup: cluster.securityGroup });
+    "net-lb", { external: true, securityGroups: cluster.securityGroups });
 const web = alb.createListener("web", { port: 80, external: true });
 
 // Step 3: Build and publish a Docker image to a private ECR registry.
