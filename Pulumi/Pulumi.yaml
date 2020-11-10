@@ -1,26 +1,3 @@
 name: UTN-TPA
 runtime: nodejs
 description: A minimal AWS TypeScript Pulumi program
-Type: AWS::ElasticLoadBalancingV2::TargetGroup
-Properties: 
-  HealthCheckEnabled: Boolean
-  HealthCheckIntervalSeconds: Integer
-  HealthCheckPath: String
-  HealthCheckPort: String
-  HealthCheckProtocol: String
-  HealthCheckTimeoutSeconds: Integer
-  HealthyThresholdCount: Integer
-  Matcher: 
-    Matcher
-  Name: String
-  Port: Integer
-  Protocol: String
-  Tags: 
-    - Tag
-  TargetGroupAttributes: 
-    - TargetGroupAttribute
-  Targets: 
-    - TargetDescription
-  TargetType: String
-  UnhealthyThresholdCount: Integer
-  VpcId: String
