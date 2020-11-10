@@ -2,6 +2,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import * as awsx from "@pulumi/awsx";
 
+// Fetch the default VPC information from your AWS account:
+const vpc = awsx.ec2.Vpc.getDefault();
+
 // Step 1: Create an ECS Fargate cluster.
 const cluster = new awsx.ecs.Cluster("Cluster");
 
@@ -29,3 +32,8 @@ const appService = new awsx.ecs.FargateService("app-svc", {
 
 // Step 5: Export the Internet address for the service.
 export const url = web.endpoint.hostname;
+
+// Export a few interesting fields to make them easy to use:
+export const vpcId = vpc.id;
+export const vpcPrivateSubnetIds = vpc.privateSubnetIds;
+export const vpcPublicSubnetIds = vpc.publicSubnetIds;
