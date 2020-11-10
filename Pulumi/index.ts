@@ -2,7 +2,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import * as awsx from "@pulumi/awsx";
 
-// Fetch the default VPC information from your AWS account:3
+// Fetch the default VPC information from your AWS account:
 const vpc = awsx.ec2.Vpc.getDefault();
 
 // Step 1: Create an ECS Fargate cluster.
