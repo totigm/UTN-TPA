@@ -2,7 +2,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import * as awsx from "@pulumi/awsx";
 
-const vpc = new aws.ec2.Vpc('VPCTPA', { cidrBlock: '10.0.0.0/16', enableDnsHostnames: true });
+//const vpc = new aws.ec2.Vpc('VPCTPA', { cidrBlock: '10.0.0.0/16', enableDnsHostnames: true });
 
 
 // Step 1: Create an ECS Fargate cluster.
@@ -33,4 +33,4 @@ const appService = new awsx.ecs.FargateService("app-svc", {
 // Step 5: Export the Internet address for the service.
 export const url = web.endpoint.hostname;
 
-export const vpcId = vpc.id; 
+//export const vpcId = vpc.id; 
