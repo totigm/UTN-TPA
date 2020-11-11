@@ -1,9 +1,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
-import * as awsx from "@pulumi/awsx";
+import { ec2 } from "@pulumi/awsx";
 
 // Fetch the default VPC information from your AWS account:
-const vpc = awsx.ec2.Vpc.getDefault();
+const vpc = new ec2.Vpc('VPCTPA', { cidrBlock: '10.0.0.0/16', enableDnsHostnames: true });
 
 // // Step 1: Create an ECS Fargate cluster.
 // const cluster = new awsx.ecs.Cluster("Cluster");
