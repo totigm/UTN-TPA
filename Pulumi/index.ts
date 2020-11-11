@@ -31,7 +31,7 @@ const vpc = awsx.ec2.Vpc.getDefault();
 // });
 
 // Step 5: Export the Internet address for the service.
-export const url = web.endpoint.hostname;
+// export const url = web.endpoint.hostname;
 
 // Export a few interesting fields to make them easy to use:
 export const vpcId = vpc.id;
