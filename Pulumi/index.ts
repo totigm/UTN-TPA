@@ -4,6 +4,7 @@ import * as awsx from "@pulumi/awsx";
 
 const vpc = new aws.ec2.Vpc('VPCTPA', { cidrBlock: '10.0.0.0/16', enableDnsHostnames: true });
 
+
 // Step 1: Create an ECS Fargate cluster.
 const cluster = new awsx.ecs.Cluster("cluster");
 
