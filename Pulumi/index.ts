@@ -35,5 +35,3 @@ const vpc = new aws.ec2.Vpc('VPCTPA', { cidrBlock: '10.0.0.0/16', enableDnsHostn
 
 // Export a few interesting fields to make them easy to use:
 export const vpcId = vpc.id;
-export const vpcPrivateSubnetIds = vpc.privateSubnetIds;
-export const vpcPublicSubnetIds = vpc.publicSubnetIds;
