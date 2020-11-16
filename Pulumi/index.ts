@@ -2,9 +2,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import * as awsx from "@pulumi/awsx";
 
-//const vpc = new aws.ec2.Vpc('VPCTPA', { cidrBlock: '10.0.0.0/16', enableDnsHostnames: true });
-
-
 // Step 1: Create an ECS Fargate cluster.
 const cluster = new awsx.ecs.Cluster("cluster");
 
@@ -13,10 +10,14 @@ const alb = new awsx.lb.ApplicationLoadBalancer(
     "net-lb", { external: true, securityGroups: cluster.securityGroups });
 const web = alb.createListener("web", { port: 80, external: true });
 
+//const repository = new awsx.ecr.Repository("repo");
+
+//const image = repository.buildAndPushImage("./app")
+
 // Step 3: Build and publish a Docker image to a private ECR registry.
 const img = awsx.ecs.Image.fromPath("app-img", "./app");
 
-// Step 4: Create a Fargate service task that can scale out.
+//Step 4: Create a Fargate service task that can scale out.
 const appService = new awsx.ecs.FargateService("app-svc", {
     cluster,
     taskDefinitionArgs: {
@@ -31,6 +32,6 @@ const appService = new awsx.ecs.FargateService("app-svc", {
 });
 
 // Step 5: Export the Internet address for the service.
-export const url = web.endpoint.hostname;
+ export const url = web.endpoint.hostname;
 
 //export const vpcId = vpc.id; 
