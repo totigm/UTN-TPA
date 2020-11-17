@@ -1,2 +1,2 @@
 FROM nginx
-COPY ../html/index.html /usr/share/nginx/html
+COPY /Pulumi/html/index.html /usr/share/nginx/html
