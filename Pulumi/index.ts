@@ -10,10 +10,6 @@ const alb = new awsx.lb.ApplicationLoadBalancer(
     "net-lb", { external: true, securityGroups: cluster.securityGroups });
 const web = alb.createListener("web", { port: 80, external: true });
 
-//const repository = new awsx.ecr.Repository("repo");
-
-//const image = repository.buildAndPushImage("./app")
-
 // Step 3: Build and publish a Docker image to a private ECR registry.
 const img = awsx.ecs.Image.fromPath("app-img", "./app");
 
