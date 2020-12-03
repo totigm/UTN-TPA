@@ -29,4 +29,4 @@ jobs:
       - run:
           name: "Run Pulumi"
           command: |
-            pulumi up --yes --skip-preview --stack dev --cwd ~/UTN-TPA/Pulumi
+            pulumi destroy --yes --skip-preview --stack dev --cwd ~/UTN-TPA/Pulumi
