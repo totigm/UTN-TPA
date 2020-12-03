@@ -10,9 +10,9 @@ const alb = new awsx.lb.ApplicationLoadBalancer(
     "net-lb", { external: true, securityGroups: cluster.securityGroups });
 const web = alb.createListener("web", { port: 80, external: true });
 
+
 // Paso 3: Creamos y publicamos una imagen de Docker a un registro ECR privado.
 const img = awsx.ecs.Image.fromPath("app-img", "./app");
-
 
 // Paso 4: Creamos un servicio Fargate que podemos poner a escala.
 const appService = new awsx.ecs.FargateService("app-svc", {
