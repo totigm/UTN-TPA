@@ -28,4 +28,5 @@ const appService = new awsx.ecs.FargateService("app-svc", {
 });
 
 // Paso 5: Exporta la URL del servicio.
+
 export const url = web.endpoint.hostname;
